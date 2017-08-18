@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <title>Jquery</title>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+    <style>
+	*{
+		padding: 0px;
+		margin: 0px;
+	}
+	#save{
+		margin: 30px;
+		width: 50px;
+		height: 30px;
+		background: black;
+		color: white;
+	}
+    </style>
+</head>
+<body>
+<form action="index.php">
+	<input type="submit" id="save" value="click">
+</form>
+</body>
+<script>
+$('#save').click(function(){
+	$.ajax({
+		type: "post",
+		url: "index.php",
+		datatype: "json",  //如果是jsonp跨域：值就为jsonp
+		data: {
+			name: "jkt",
+			sex: "girl",
+			age: 20
+		},
+		success: function(data){
+			if(data.success){
+				// 执行一些代码
+			}else{
+				//	执行一些代码
+			}
+		},
+		error: function(){
+			// 
+		},
+		async: true
+	});
+});
+</script>
+</html> 
